@@ -1,5 +1,6 @@
 import streamlit as st
 from calculator import SaveBonusCalculator
+from utils import caffeine
 
 # =========================
 # Streamlit UI
@@ -11,6 +12,9 @@ st.set_page_config(
 
 st.title("OCBC Save Bonus Calculator")
 st.caption("Singapore Time (SGT)–aware calculator for Save Bonus Calculation")
+st.divider()
+st.markdown(caffeine())
+st.divider()
 
 calculator = SaveBonusCalculator()
 

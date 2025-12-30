@@ -12,7 +12,10 @@ from telegram.ext import (
 )
 from utils import caffeine
 
-TELEGRAM_API_KEY = os.environ.get("TELEGRAM_API_KEY")
+TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
+
+if not TELEGRAM_TOKEN:
+    raise RuntimeError("TELEGRAM_TOKEN is not set")
 
 # =========================
 # Conversation States
@@ -102,7 +105,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 
-async def kofi(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def coffee(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = caffeine()
     await update.message.reply_text(message)
 
@@ -111,7 +114,7 @@ async def kofi(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Application Entry Point
 # =========================
 def main():
-    app = ApplicationBuilder().token(TELEGRAM_API_KEY).build()
+    app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("calculate", calculate)],
@@ -135,7 +138,7 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(conv_handler)
-    app.add_handler(CommandHandler("kofi", kofi))
+    app.add_handler(CommandHandler("coffee", coffee))
 
     app.run_polling()
 
