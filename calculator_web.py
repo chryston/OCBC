@@ -37,7 +37,7 @@ with st.form("calculator_form"):
         min_value=1,
         max_value=calculator.num_days_in_current_month,
         step=1,
-        value=calculator.time_now.day - 1,
+        value=min(1, calculator.time_now.day - 1),
     )
 
     adb_increase_vs_last_month = st.number_input(
