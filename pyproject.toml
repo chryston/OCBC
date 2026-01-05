@@ -2,12 +2,12 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-[project]
-name = "streamlit-app"
+[tool.poetry]
+name = "ocbc-app"
 version = "0.1.0"
-requires-python = ">=3.9"
+package-mode = false
 
-dependencies = [
-    "streamlit",
-    "plotly"
-]
+[tool.poetry.dependencies]
+python = ">=3.9"
+streamlit = "*"
+plotly = "*"
