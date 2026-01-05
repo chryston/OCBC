@@ -1,4 +1,5 @@
 import streamlit as st
+
 from calculator import SaveBonusCalculator
 from utils import caffeine
 
@@ -12,9 +13,14 @@ st.set_page_config(
 
 st.title("OCBC Save Bonus Calculator")
 st.caption("Singapore Time (SGT)–aware calculator for Save Bonus Calculation")
+st.caption(caffeine())
 st.divider()
-st.markdown(caffeine())
-st.divider()
+with st.expander("How to use this calculator:"):
+    st.image(
+        "how_to_fill.png",
+        caption="You may retrieve the required input parameters by logging in to the OCBC website at https://www.ocbc.com/. Please note that this information is not available via the OCBC mobile application.",
+        width="stretch",
+    )
 
 calculator = SaveBonusCalculator()
 
@@ -78,7 +84,5 @@ if submitted:
     )
 
     st.markdown(result)
-
-    st.subheader("ADB Projection")
     fig = result.plot_adb_projection()
     st.plotly_chart(fig, use_container_width=True)
