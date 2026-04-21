@@ -101,17 +101,17 @@ class Results:
     def __str__(self) -> str:
         return (
             "### TL;DR\n"
-            f"**Required Transfer (in/out): `${{self.adjustment_daily:,.2f}}`** \n"
+            f"**Required Transfer (in/out): `${self.adjustment_daily:,.2f}`** \n"
             f"- Positive = Deposit; Negative = Withdraw\n"
             "### Detailed Metrics\n"
-            f"- For One-Day Adjustment: `${{self.adjustment:,.2f}}`\n"
-            f"- Last Month ADB: `${{self.last_month_adb:,.2f}}`\n"
-            f"- Current Month Progress: `${{self.current_amount:,.2f}} / `${{self.total_amount_needed:,.2f}}`\n"
+            f"- For One-Day Adjustment: `${self.adjustment:,.2f}`\n"
+            f"- Last Month ADB: `${self.last_month_adb:,.2f}`\n"
+            f"- Current Month Progress: `${self.current_amount:,.2f} / `${self.total_amount_needed:,.2f}`\n"
             f"- Average Daily Balance (ADB):\n"
-            f"  - Current ADB (as of {{self.balance_as_of}}): `${{self.current_month_adb:,.2f}}`, Change: `${{self.adb_increase_vs_last_month}}`\n"
-            f"  - Projected ADB before adjustment: `${{self.projected_adb_before_adjustment:,.2f}}`, Change: `${{self.projected_adb_change_before_adjustment:,.2f}}`\n"
-            f"  - Projected ADB after adjustment: `${{self.projected_adb_after_adjustment:,.2f}}`, Change: `${{self.projected_adb_change_after_adjustment:,.2f}}`\n"
-            f"  - Amount to add/remove on 1st next month: `${{self.amount_to_add_or_remove_next_month:,.2f}}`"
+            f"  - Current ADB (as of {self.balance_as_of}): `${self.current_month_adb:,.2f}`, Change: `${self.adb_increase_vs_last_month}`\n"
+            f"  - Projected ADB before adjustment: `${self.projected_adb_before_adjustment:,.2f}`, Change: `${self.projected_adb_change_before_adjustment:,.2f}`\n"
+            f"  - Projected ADB after adjustment: `${self.projected_adb_after_adjustment:,.2f}`, Change: `${self.projected_adb_change_after_adjustment:,.2f}`\n"
+            f"  - Amount to add/remove on 1st next month: `${self.amount_to_add_or_remove_next_month:,.2f}`"
         )
 
     def plot_adb_projection(self):
