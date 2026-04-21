@@ -11,3 +11,4 @@ package-mode = false
 python = ">=3.9"
 streamlit = "*"
 plotly = "*"
+pytz = "*"
