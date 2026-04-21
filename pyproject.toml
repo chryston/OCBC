@@ -8,7 +8,7 @@ version = "0.1.0"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.9"
-streamlit = "*"
+python = "^3.11"
+streamlit = "^1.56.0"
 plotly = "*"
-pytz = "*"
+pytz = "^2024.1"
